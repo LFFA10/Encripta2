@@ -1,26 +1,34 @@
-document.getElementById('encryptBtn').addEventListener('click', function() {
-    const text = document.getElementById('textInput').value;
-    const encryptedText = encrypt(text);
+document.getElementById("encryptBtn").addEventListener("click", function() {
+    let text = document.getElementById("textInput").value;
+    let encryptedText = encrypt(text);
     displayMessage(encryptedText);
 });
 
-document.getElementById('decryptBtn').addEventListener('click', function() {
-    const text = document.getElementById('textInput').value;
-    const decryptedText = decrypt(text);
+document.getElementById("decryptBtn").addEventListener("click", function() {
+    let text = document.getElementById("textInput").value;
+    let decryptedText = decrypt(text);
     displayMessage(decryptedText);
 });
 
 function encrypt(text) {
-    // Aquí va tu lógica de encriptación
-    return text.split('').reverse().join(''); // Ejemplo simple de inversión de texto
+    // Reemplazar las letras minúsculas sin acentos por un cifrado simple (ejemplo de cifrado)
+    return text.replace(/e/g, "enter")
+               .replace(/i/g, "imes")
+               .replace(/a/g, "ai")
+               .replace(/o/g, "ober")
+               .replace(/u/g, "ufat");
 }
 
 function decrypt(text) {
-    // Aquí va tu lógica de desencriptación
-    return text.split('').reverse().join(''); // Ejemplo simple de inversión de texto
+    // Revertir el cifrado
+    return text.replace(/enter/g, "e")
+               .replace(/imes/g, "i")
+               .replace(/ai/g, "a")
+               .replace(/ober/g, "o")
+               .replace(/ufat/g, "u");
 }
 
 function displayMessage(message) {
-    const outputMessage = document.querySelector('.output-message p');
-    outputMessage.textContent = message ? message : 'Ningún mensaje fue encontrado';
+    document.querySelector(".output-message p").innerText = message;
 }
+
